@@ -15,7 +15,7 @@ const Search = () => {
     return (
         <>
             <Container className="my-5">
-                <h1 className="text-center"><span className="text-primary">Welcome</span> to the <span className="text-info">TV Show </span></h1>
+                <h1 className="text-center"><span className="text-primary">Search</span> your favorite <span className="text-info">TV Show </span></h1>
                 <Form className="w-50 m-auto">
                     <FormControl type="search" onChange={handelSearch} placeholder="Search your favorite TV shows" className="me-2" aria-label="Search" />
                 </Form>

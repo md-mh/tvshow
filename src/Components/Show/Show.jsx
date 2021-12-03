@@ -5,22 +5,23 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import './Show.css'
 
 const Show = (props) => {
-    const { name, image, rating, genres, summary } = props.show;
+    const { name, image, rating, genres, language, summary, status, schedule, url } = props.show;
 
     const [lgShow, setLgShow] = useState(false);
-
     return (
         <>
             <Col data-aos="zoom-in" data-aos-delay="700" >
                 <div className="thumbnail">
                     <Card.Img src={image?.medium} />
-
-                    <div className="hover" >
-
+                    <div className="hover">
+                    </div>
+                    <div className="content">
                         <h2>{name}</h2>
-                        <p><span className="text-primary">Genres: </span>{genres[0]}</p>
-                        <Rating className="p-2" initialRating={rating.average} fullSymbol={<AiFillStar />} emptySymbol={<AiOutlineStar />} readonly />
-                        <Button onClick={() => setLgShow(true)}>Details</Button>
+                        <p><span className="text">Genres: </span>{genres[0]}</p>
+                        <p><span className="text">Language: </span>{language}</p>
+                        <p><Rating className="p-2" initialRating={rating.average} fullSymbol={<AiFillStar />} emptySymbol={<AiOutlineStar />} readonly />
+                        </p>
+                        <Button onClick={() => setLgShow(true)}>See Details</Button>
 
                         <Modal
                             size="lg"
@@ -39,7 +40,10 @@ const Show = (props) => {
                                         <Card.Img src={image?.medium} />
                                     </Col>
                                     <Col>
-                                        {summary}
+                                        <p>{summary}</p>
+                                        <p><span className="text-primary">Status: </span>{status}</p>
+                                        <p><span className="text-primary">Schedule: </span>{schedule.time}</p>
+                                        <Button varient="info"><a className="text text-decoration-none" href={url} target="blank">SHOW NOW</a></Button>
                                     </Col>
                                 </Row>
                             </Modal.Body>
